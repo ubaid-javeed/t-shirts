@@ -1,0 +1,101 @@
+<div style="text-align:{{ section.settings.text-alignment }}">
+    
+{% for block in section.blocks %}
+   {%- case block.type -%}
+    {%- when "title" -%}
+    <h2 style="background-color:{{ block.settings.bg__color }};color:{{ block.settings.font-color }}">TITLE</h2>
+        
+    {%- when "subtitle" -%} 
+    <h5 style="background-color:{{ block.settings.bg__color }};color:{{ block.settings.font-color }}">SUBTITLE</h5>
+
+   {%- endcase -%}
+
+{% endfor %}
+</div>
+
+{% schema %}
+{
+"name":"helow world",
+"settings": [
+    {
+        "type": "select",
+        "id": "text-alignment",
+        "label": "Text Alignment",
+        "options": [
+            {
+            
+            "value": "center",
+            "label": "center"
+            },
+            {
+            
+            "value": "left",
+            "label": "left"
+            },
+            {
+            
+            "value": "right",
+            "label": "right"
+            }
+        ],
+        "default": "center",
+        "info": "here you can select text alignment"
+    },
+    
+],
+"blocks": [
+    {
+        "name":"Title",
+        "type":"title",
+        "settings":[
+            {
+                "type": "color",
+                "id": "bg__color",
+                "label": "background color",
+                "default": "#000000",
+                "info": "add background color"
+            },
+            {
+                "type": "color",
+                "id": "font-color",
+                "label": "font-color",
+                "default": "#fff",
+                "info": "text color"
+         },
+
+    ]
+},
+    {
+        "name":"subtitle",
+        "type":"subtitle",
+         "settings":[
+            {
+        "type": "color",
+        "id": "bg__color",
+        "label": "background color",
+        "default": "#000000",
+        "info": "add background color"
+    },
+    {
+        "type": "color",
+        "id": "font-color",
+        "label": "font-color",
+        "default": "#fff",
+        "info": "text color",
+    },
+
+        ]
+    }
+    
+    
+
+
+],
+"presets": [
+    {
+        "name": "hellow world"
+    }
+]
+
+}
+{% endschema %}
